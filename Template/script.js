@@ -23,3 +23,6 @@ function setup() {
 }
 
 setup(); // Always remember to call setup()!
+
+
+can you see this dani, dani please awnser me, i'm so alone in here
