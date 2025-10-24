@@ -43,14 +43,6 @@ export function setColour(h, s = 100, l = 50, a = 1, element = thing) {
   }
 }
 
-/* Position-related functions */
-function transform(element = thing) {
-  if (element != null) {
-    // state.x/state.y are stored in pixels now
-    element.style.transform = `translate(${ state.x }px, ${ state.y }px) rotate(${ state.rotation }deg)`;
-  }
-}
-
 /**
  * Set position using normalized coordinates (fractions of the window size).
  * The supplied x and y should be values in the range 0..1 where 0 is the
@@ -72,7 +64,7 @@ export function setPosition(x, y, element = thing) {
   state.y = y * h;
 
   if (element != null) {
-    transform(element);
+    element.style.translate = `${ state.x }px ${ state.y }px`;
   }
 }
 
@@ -90,7 +82,7 @@ export function setPositionPixels(px, py, element = thing) {
   state.y = py;
 
   if (element != null) {
-    transform(element);
+    element.style.translate = `${ state.x }px ${ state.y }px`;
   }
 }
 
@@ -133,7 +125,7 @@ export function setSize(sizeOrWidth, height = null, element = thing) {
 export function setRotation(rotation, element = thing) {
   state.rotation = rotation;
   if (element != null) {
-    transform(element);
+    element.style.rotate = `${ rotation }deg`;
   }
 }
 
